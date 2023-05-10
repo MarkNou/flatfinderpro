@@ -1,10 +1,16 @@
 import React from 'react'
+import heroLogo from '../assets/heroLogo.png'
 
 const Home = () => {
   return (
     <>
-      <div className='bg-gradient-to-br from-gray-200 to-gray-300'>
-        <h1 className='text-7xl flex justify-center'> Welcome to FlatFinder Pro</h1>
+      <div className='bg-gradient-to-tr from-gray-500 to-blue-200 min-h-screen'>
+        <h1 className='mt-8 text-7xl flex justify-center text-white italic font-sans '> <img
+                  src={ heroLogo }
+                  className="mr-3 h-12 sm:h-16"
+                  alt="FlatFinderPro Logo"
+                /> Welcome to FlatFinderPro</h1>
+        
       </div>
     </>
   )
