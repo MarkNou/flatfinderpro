@@ -2,7 +2,9 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <>
+    <footer className='bg-gray-500 absolute bottom-0 w-full text-white italic bold'>Developed by JEMV</footer>
+    </>
   )
 }
 

@@ -9,7 +9,8 @@ import ApartmentProtectedIndex from './pages/ApartmentProtectedIndex'
 import NotFound from './pages/NotFound'
 import Footer from './components/Footer'
 import { Routes, Route } from 'react-router-dom';
-
+import SignUp from './components/SignUp';
+import LogIn from './components/LogIn';
 
 
 
@@ -19,6 +20,8 @@ const App = () => {
       <Header />
       <Routes>
         <Route path= "/" element= {<Home />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/signup" element={<SignUp />} />
         <Route path= "/apartmentindex" element= {<ApartmentIndex />} />
         <Route path= "/apartmentshow" element= {<ApartmentShow />} />
         <Route path= "/apartmentnew" element= {<ApartmentNew />} />
