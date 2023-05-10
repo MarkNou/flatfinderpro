@@ -2,7 +2,9 @@ import React from 'react'
 
 const ApartmentShow = () => {
   return (
-    <div>ApartmentShow</div>
+    <>
+    <body className="min-h-screen bg-gradient-to-br from-gray-800"> Show</body>
+    </>
   )
 }
 
