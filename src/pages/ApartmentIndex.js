@@ -2,7 +2,7 @@ import React from 'react'
 
 const ApartmentIndex = () => {
   return (
-    <div>ApartmentIndex</div>
+    <body className="min-h-screen bg-gradient-to-br from-gray-800"></body>
   )
 }
 

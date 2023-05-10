@@ -21,6 +21,7 @@ const Header = (args) => {
   
     return (
         <>
+        <h1>Hello World</h1>
       <div>
         <Navbar className="bg-gray-500" {...args}>
           <NavbarBrand className="text-white italic" href="/">FlatFinderPro</NavbarBrand>
