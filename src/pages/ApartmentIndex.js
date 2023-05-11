@@ -4,7 +4,7 @@ import { Card, CardBody, CardLink, CardText, CardTitle, ListGroup, ListGroupItem
 const ApartmentIndex = ({ apt, id }) => {
   return (
     <>
-    <h1 className="text-3xl font-bold mb-8"> View all listings </h1>
+    <h1 className="text-3xl font-bold mb-8 text-center pt-6"> View all listings </h1>
     <div className="grid grid-cols-3 gap-8">
       {apt?.map(({ apt, street, unit, city, state, bedrooms, bathrooms, price, pets, image, square_footage }) => {
         return (

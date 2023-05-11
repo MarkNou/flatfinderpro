@@ -14,13 +14,8 @@ const LogIn = () => {
             />
             FlatFinderPro
           </h1>
-          <p class="text-white mt-1">Find your apartment with us</p>
-          <button
-            type="submit"
-            class="block w-28 bg-white text-indigo-800 mt-4 py-2 rounded-2xl font-bold mb-2"
-          >
-            Read More
-          </button>
+          <p class="text-white mt-1">Find your new apartment with us</p>
+          
         </div>
       </div>
       <div class="flex w-1/2 justify-center items-center bg-white">
