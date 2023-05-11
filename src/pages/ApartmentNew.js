@@ -34,7 +34,7 @@ const handleSubmit = () => {
 
   return (
     <>
-      <Form>
+      <Form className=" shadow-lg shadow-gray-400 border-gray-200 border-4 p-4 rounded-lg" style={{ width: '50%', margin: 'auto' }}>
         <FormGroup>
           <Label for="street">Street</Label>
           <Input
