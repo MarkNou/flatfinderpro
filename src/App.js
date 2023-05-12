@@ -12,16 +12,63 @@ import { Routes, Route } from 'react-router-dom';
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import { useState } from 'react';
-import mockApartments from './mockApartments';
-
+import mockUsers from './mockUsers';
+import { useEffect } from 'react';
 
 const App = () => {
 
-const [apt, setApt] = useState(mockApartments)
+const [apt, setApt] = useState([])
+const [user, setUser] = useState(mockUsers[0])
 
+useEffect(() => {
+  readApt();
+}, []);
+
+const readApt = () => {
+  fetch("http://localhost:3000/apartments")
+    .then((response) => response.json())
+    .then((payload) => {
+      setApt(payload);
+    })
+    .catch((error) => console.log(error));
+};
 const createApt = (apt) => {
-  console.log(apt)
-}
+  fetch("http://localhost:3000/apartments", {
+    body: JSON.stringify(apt),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+  })
+    .then((response) => response.json())
+    .then((payload) => readApt())
+    .catch((errors) => console.log("Cat create errors:", errors));
+};
+const updateApt = (apt, id) => {
+  fetch(`http://localhost:3000/apartments/${id}`, {
+    body: JSON.stringify(apt),
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "PATCH",
+  })
+    .then((response) => response.json())
+    .then(() => readApt())
+    .catch((error) => console.log("Updated errors:", error));
+};
+
+const deleteApt = (id) => {
+  fetch(`http://localhost:3000/apartments/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "DELETE",
+  })
+    .then((response) => response.json())
+    .then((payload) => readApt())
+    .catch((errors) => console.log("delete errors:", errors));
+};
+
 
   return (
     <>
@@ -31,10 +78,10 @@ const createApt = (apt) => {
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path= "/apartmentindex" element= {<ApartmentIndex apt = {apt} />} />
-        <Route path= "/apartmentshow/:id" element= {<ApartmentShow apt = {apt} />} />
+        <Route path= "/apartmentshow/:id" element= {<ApartmentShow apt = {apt} deleteApt={deleteApt} />} />
         <Route path= "/apartmentnew" element= {<ApartmentNew createApt = {createApt}/>} />
-        <Route path= "/apartmentedit" element= {<ApartmentEdit />} />
-        <Route path= "/apartmentprotectedindex" element= {<ApartmentProtectedIndex />} />
+        <Route path= "/apartmentedit/:id" element= {<ApartmentEdit apt={apt} updateApt={updateApt}/>} />
+        <Route path= "/myapartments" element= {<ApartmentProtectedIndex user={user} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
