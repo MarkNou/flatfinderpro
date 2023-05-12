@@ -8,7 +8,6 @@ const ApartmentNew = ({ createApt }) => {
 const navigate = useNavigate();
 
 const [newApt, setNewApt] = useState({
-  id: "",
   street: "",
   unit: "",
   city: "",
@@ -19,6 +18,7 @@ const [newApt, setNewApt] = useState({
   bathrooms: "",
   pets: "",
   image: "",
+  user_id: '1'
 });
 
 const handleChange = (e) => {
@@ -143,6 +143,17 @@ const handleSubmit = () => {
             type="text"
             onChange={handleChange}
             value={newApt.image}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="image">User</Label>
+          <Input
+            id="apt-image"
+            name="user_id"
+            placeholder="Enter image URL here"
+            type="text"
+            onChange={handleChange}
+            value={newApt.user_id}
           />
         </FormGroup>
 
