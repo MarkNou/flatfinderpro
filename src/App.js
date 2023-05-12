@@ -13,19 +13,19 @@ import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import { useState } from 'react';
 import mockApartments from './mockApartments';
-
+import mockUsers from './mockUsers';
 
 const App = () => {
 
 const [apt, setApt] = useState(mockApartments)
-
+const [user, setUser] = useState(mockUsers[0])
 const createApt = (apt) => {
   console.log(apt)
 }
 
   return (
     <>
-      <Header />
+      <Header user={user}/>
       <Routes>
         <Route path= "/" element= {<Home />} />
         <Route path="/login" element={<LogIn />} />
@@ -34,7 +34,7 @@ const createApt = (apt) => {
         <Route path= "/apartmentshow/:id" element= {<ApartmentShow apt = {apt} />} />
         <Route path= "/apartmentnew" element= {<ApartmentNew createApt = {createApt}/>} />
         <Route path= "/apartmentedit" element= {<ApartmentEdit />} />
-        <Route path= "/apartmentprotectedindex" element= {<ApartmentProtectedIndex />} />
+        <Route path= "/myapartments" element= {<ApartmentProtectedIndex user={user} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
