@@ -12,13 +12,13 @@ import { Routes, Route } from 'react-router-dom';
 import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import { useState } from 'react';
-import mockUsers from './mockUsers';
 import { useEffect } from 'react';
+import mockApartments from './mockApartments';
 
 const App = () => {
 
-const [apt, setApt] = useState([])
-const [user, setUser] = useState(mockUsers[0])
+const [apt, setApt] = useState(mockApartments)
+
 
 useEffect(() => {
   readApt();
@@ -81,7 +81,7 @@ const deleteApt = (id) => {
         <Route path= "/apartmentshow/:id" element= {<ApartmentShow apt = {apt} deleteApt={deleteApt} />} />
         <Route path= "/apartmentnew" element= {<ApartmentNew createApt = {createApt}/>} />
         <Route path= "/apartmentedit/:id" element= {<ApartmentEdit apt={apt} updateApt={updateApt}/>} />
-        <Route path= "/myapartments" element= {<ApartmentProtectedIndex user={user} />} />
+        <Route path= "/myapartments" element= {<ApartmentProtectedIndex />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

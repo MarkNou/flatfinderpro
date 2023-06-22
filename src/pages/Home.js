@@ -1,5 +1,4 @@
 import React from "react";
-import heroLogo from "../assets/heroLogo.png";
 import landingPage from  "../assets/landingPage.svg"
 
 const Home = () => {
